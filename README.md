@@ -7,5 +7,7 @@ generate Table of Content (toc) for markdown file
 
 The TOC lines would displayed on the screen. 
 
-Just copy and paste them to your markdown file. That's it!!
+Just copy and paste them to your markdown file. That's it.
+
+[Example](https://github.com/xinlin-z/teapot)
 
