@@ -7,9 +7,17 @@ with open(sys.argv[1]) as f:
     lines = f.readlines()
 
 
+skip = 0
 for line in lines:
-    line = line.strip()
-    strs = re.match(r'(#+)(.*)', line)
+    # skip code block started with 4 space
+    if line.startswith(' '*4):
+        continue
+    # skip ``` block
+    if line.startswith('```'):
+        skip = abs(skip-1)
+    if skip: continue
+    # search and print out #+ title
+    strs = re.search(r'^\s*(#+)(.*)', line)
     if strs:
         ht = strs.groups()[0]
         rest = strs.groups()[1].strip()
