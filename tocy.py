@@ -2,7 +2,7 @@ import sys
 import re
 
 
-# python3 tocy.py[0] *.md[1]
+# sys.argv[1] is *.md
 with open(sys.argv[1]) as f:
     lines = f.readlines()
 
@@ -17,13 +17,13 @@ for line in lines:
         skip = abs(skip-1)
     if skip: continue
     # search and print out #+ title
-    strs = re.search(r'^\s*(#+)(.*)', line)
+    strs = re.match(r'\s*(#+)(.*)', line)
     if strs:
-        ht = strs.groups()[0]
-        rest = strs.groups()[1].strip()
-        htl = len(ht)
-        print(''.join((' '*(htl-1)*4,
-                       '* ',
-                       '[',rest,']',
-                       '(#','-'.join(rest.split()),')')))
+        if (htl:=len((ht:=strs.groups()[0]))) > 6:
+            continue
+        # space to - and squeeze unsupported chars
+        rest = re.sub(r'\s','-', strs.groups()[1].strip())
+        rest = re.sub(r'[^-_0-9a-zA-Z]', '', rest)
+        print(''.join((' '*(htl-1)*4, '* ',
+                       '[',strs.groups()[1].strip(),'](#', rest,')')))
 
