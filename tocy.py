@@ -17,8 +17,7 @@ for line in lines:
         skip = abs(skip-1)
     if skip: continue
     # search and print out #+ title
-    strs = re.match(r'\s*(#+)(.*)', line)
-    if strs:
+    if (strs:=re.match(r'\s*(#+)(.*)',line)):
         if (htl:=len((ht:=strs.groups()[0]))) > 6:
             continue
         # space to - and squeeze unsupported chars
