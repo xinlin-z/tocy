@@ -51,6 +51,8 @@ the header of your markdown file. That's it!!
 * [__bold2 12345__](#bold2-12345)
 * [~cross out~](#cross-out)
 * [~~cross out 2~~](#cross-out-2)
+* [**~bold cross out~**](#bold-cross-out)
+* [__~~blod cross out 2~~__](#blod-cross-out-2)
 
 ---
 
@@ -71,7 +73,7 @@ the header of your markdown file. That's it!!
 # a(c)
 # a.,.,!@#$%^&*().,.7
 
-----
+___
 
 # *italic 12345*
 # **bold 12345**
@@ -79,4 +81,6 @@ the header of your markdown file. That's it!!
 # __bold2 12345__
 # ~cross out~
 # ~~cross out 2~~
+# **~bold cross out~**
+# __~~blod cross out 2~~__
 
