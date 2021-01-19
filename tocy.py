@@ -17,11 +17,15 @@ for line in lines:
         skip = abs(skip-1)
     if skip: continue
     # search and print out #+ title
-    if (strs:=re.match(r'\s*(#+)(.*)',line)):
-        if (htl:=len((ht:=strs.groups()[0]))) > 6:
+    if strs:=re.match(r'\s*(#+)(.*)',line):
+        if (htl:=len((ht:=strs.groups()[0]))) > 6:  # max head level
             continue
+        rest = strs.groups()[1].strip()
+        # git rid of markdown syntax elements ~*_
+        while a:=re.search(r'([~*_]{1,2})(.*)\1',rest):
+            rest = rest[:a.start()] + a.groups()[1] + rest[a.end():]
         # space to - and squeeze unsupported chars
-        rest = re.sub(r'\s','-', strs.groups()[1].strip())
+        rest = re.sub(r'\s', '-', rest)
         rest = re.sub(r'[^-_0-9a-zA-Z]', '', rest)
         print(''.join((' '*(htl-1)*4, '* ',
                        '[',strs.groups()[1].strip(),'](#', rest,')')))

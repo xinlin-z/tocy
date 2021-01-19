@@ -45,6 +45,14 @@ the header of your markdown file. That's it!!
 * [a ( c )](#a--c-)
 * [a(c)](#ac)
 * [a.,.,!@#$%^&*().,.7](#a7)
+* [*italic 12345*](#italic-12345)
+* [**bold 12345**](#bold-12345)
+* [_italic2 12345_](#italic2-12345)
+* [__bold2 12345__](#bold2-12345)
+* [~cross out~](#cross-out)
+* [~~cross out 2~~](#cross-out-2)
+
+---
 
 # Test
 ## header
@@ -54,9 +62,21 @@ the header of your markdown file. That's it!!
 ###### head 6
 ####### not a head 7
 
+***
+
 # _abc
 # a & b & c
 # a       c
 # a ( c )
 # a(c)
 # a.,.,!@#$%^&*().,.7
+
+----
+
+# *italic 12345*
+# **bold 12345**
+# _italic2 12345_
+# __bold2 12345__
+# ~cross out~
+# ~~cross out 2~~
+
