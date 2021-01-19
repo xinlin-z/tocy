@@ -5,21 +5,24 @@
 * [test area](#test-area)
 
 # tocy
-generate Table of Content (toc) for markdown file.
+generate Table of Content (TOC) for markdown file.
 
 # usage
 
     $ python3 tocy.py README.md
 
-The TOC lines would displayed on the screen. Just `copy` and `paste` them to
-the header of your markdown file. That's it!!
+The TOC lines would be displayed on the screen. Just `copy` and `paste` them
+to the right place of your markdown file. That's it!!
 
 [Example1](https://github.com/xinlin-z/teapot)
 [Example2](https://github.com/xinlin-z/common)
 
 # revision
 
-* 20200114:
+* 20210119:
+    - support markdown syntax in head lines
+
+* 20210114:
     - fixup
     - update readme with test area
 
@@ -45,6 +48,16 @@ the header of your markdown file. That's it!!
 * [a ( c )](#a--c-)
 * [a(c)](#ac)
 * [a.,.,!@#$%^&*().,.7](#a7)
+* [*italic 12345*](#italic-12345)
+* [**bold 12345**](#bold-12345)
+* [_italic2 12345_](#italic2-12345)
+* [__bold2 12345__](#bold2-12345)
+* [~cross out~](#cross-out)
+* [~~cross out 2~~](#cross-out-2)
+* [**~bold cross out~**](#bold-cross-out)
+* [__~~blod cross out 2~~__](#blod-cross-out-2)
+
+---
 
 # Test
 ## header
@@ -54,9 +67,48 @@ the header of your markdown file. That's it!!
 ###### head 6
 ####### not a head 7
 
+***
+
 # _abc
 # a & b & c
 # a       c
 # a ( c )
 # a(c)
 # a.,.,!@#$%^&*().,.7
+
+___
+
+# *italic 12345*
+# **bold 12345**
+# _italic2 12345_
+# __bold2 12345__
+# ~cross out~
+# ~~cross out 2~~
+# **~bold cross out~**
+# __~~blod cross out 2~~__
+
+up
+
+up
+
+up
+
+up
+
+up
+
+up
+
+up
+
+up
+
+up
+
+up
+
+up
+
+up
+
+

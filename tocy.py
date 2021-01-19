@@ -2,7 +2,6 @@ import sys
 import re
 
 
-# sys.argv[1] is *.md
 with open(sys.argv[1]) as f:
     lines = f.readlines()
 
@@ -17,12 +16,15 @@ for line in lines:
         skip = abs(skip-1)
     if skip: continue
     # search and print out #+ title
-    if (strs:=re.match(r'\s*(#+)(.*)',line)):
-        if (htl:=len((ht:=strs.groups()[0]))) > 6:
+    if strs:=re.match(r'\s*(#+)(.*)',line):
+        if (htl:=len((ht:=strs.groups()[0]))) > 6:  # max head level is 6
             continue
-        # space to - and squeeze unsupported chars
-        rest = re.sub(r'\s','-', strs.groups()[1].strip())
-        rest = re.sub(r'[^-_0-9a-zA-Z]', '', rest)
+        rest = strs.groups()[1].strip()
+        # git rid of markdown syntax elements ~*_
+        while a:=re.search(r'([~*_]{1,2})(.*)\1',rest):
+            rest = rest[:a.start()] + a.groups()[1] + rest[a.end():]
+        rest = re.sub(r'\s', '-', rest)  # space --> -
+        rest = re.sub(r'[^-_0-9a-zA-Z]', '', rest)  # squeeze other chars
         print(''.join((' '*(htl-1)*4, '* ',
                        '[',strs.groups()[1].strip(),'](#', rest,')')))
 
