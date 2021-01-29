@@ -24,7 +24,7 @@ for line in lines:
         while a:=re.search(r'([~*_]{1,2})(.*)\1',rest):
             rest = rest[:a.start()] + a.groups()[1] + rest[a.end():]
         rest = re.sub(r'\s', '-', rest)  # space --> -
-        rest = re.sub(r'[^-_0-9a-zA-Z]', '', rest)  # squeeze other chars
+        rest = re.sub(r'[^-\w]', '', rest)  # squeeze other chars
         print(''.join((' '*(htl-1)*4, '* ',
                        '[',strs.groups()[1].strip(),'](#', rest,')')))
 
